@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
@@ -207,6 +208,7 @@ public class WebActivity extends Activity {
 		//return super.onKeyDown(keyCode, event);
 		if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
 			mWebView.goBack();
+			Log.i("","");
 			return true;
 		} else {
 			finish();
