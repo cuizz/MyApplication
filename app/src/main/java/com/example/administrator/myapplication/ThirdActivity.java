@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.example.administrator.myapplication.util.FragmengOne;
 import com.example.administrator.myapplication.util.FragmengThree;
@@ -55,6 +56,7 @@ public class ThirdActivity extends AppCompatActivity {
         imageData.add("http://pic.4j4j.cn/upload/pic/20130909/681ebf9d64.jpg");
         imageData.add("http://d.hiphotos.baidu.com/image/pic/item/54fbb2fb43166d22dc28839a442309f79052d265.jpg");
         return imageData;
+       // Log.e("zzz","zzzz");
     }
 
     private List<String> titleListString() {
