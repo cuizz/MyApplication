@@ -3,12 +3,17 @@ package com.example.administrator.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.administrator.myapplication.section.HotelEntity;
+import com.example.administrator.myapplication.section.HotelEntityAdapter;
+import com.example.administrator.myapplication.section.JsonUtils;
+import com.example.administrator.myapplication.section.SectionedSpanSizeLookup;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
@@ -30,14 +35,21 @@ public class MainActivity extends AppCompatActivity {
     Call call;
     List<Bean>list=new ArrayList<>();
     Button button;
+    HotelEntityAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView=(RecyclerView) findViewById(R.id.rv_list);
         button=(Button)findViewById(R.id.button);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        mAdapter = new HotelEntityAdapter(this);
+        GridLayoutManager manager = new GridLayoutManager(this,4);
+        //设置header
+        manager.setSpanSizeLookup(new SectionedSpanSizeLookup(mAdapter,manager));
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(mAdapter);
+        HotelEntity entity = JsonUtils.analysisJsonFile(this,"json");
+        mAdapter.setData(entity.allTagsList);
         Request request=null;
         HashMap<String,String>mBody=new HashMap<>();
         mBody.put("userid", "370123195008155717");
@@ -74,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        recyclerView.setAdapter(new MyAdapter(this,list));
+        //recyclerView.setAdapter(new MyAdapter(this,list));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
