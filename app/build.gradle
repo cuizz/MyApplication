@@ -18,6 +18,11 @@ android {
         }
     }
 }
+repositories {
+    maven {
+        url 'https://github.com/yanzm/LoopViewPager/raw/master/maven-repo'
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -40,4 +45,7 @@ dependencies {
 
     compile 'org.apache.commons:commons-lang3:3.3.1'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+
+    compile 'net.yanzm:loopviewpager:25.0.1'
+    compile 'com.github.open-android:LoopViewPager:1.0.0'
 }

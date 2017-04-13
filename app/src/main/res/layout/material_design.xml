@@ -19,7 +19,45 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:layout_scrollFlags="scroll|enterAlways" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <com.itheima.loopviewpager.LoopViewPager
+                android:id="@+id/lvp_pager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:animStyle="accordion"
+                app:animTime="1000"
+                app:loopTime="7000">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="#55000000"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    //表示轮播图的文字
+                    <com.itheima.loopviewpager.LoopTitleView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:textColor="#FF0000"
+                        android:textSize="16sp" />
+                    //表示轮播图的点
+                    <com.itheima.loopviewpager.LoopDotsView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        app:dotShape="oval"
+                        app:dotSize="10dp" />
+
+                </LinearLayout>
+
+            </com.itheima.loopviewpager.LoopViewPager>
+        </LinearLayout>
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"

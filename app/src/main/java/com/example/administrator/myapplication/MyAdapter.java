@@ -34,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.tv.setText(list.get(position).getDescribe());
+        holder.tv.setText(list.get(position).getTitle());
         Glide.with(context).load("").placeholder(R.drawable.ic_empty).into(holder.iv);
     }
 

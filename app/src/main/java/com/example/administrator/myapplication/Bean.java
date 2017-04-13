@@ -7,7 +7,17 @@ package com.example.administrator.myapplication;
 public class Bean {
     String name;
     String url;
+    String describe;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    String title;
     public String getDescribe() {
         return describe;
     }
@@ -16,7 +26,7 @@ public class Bean {
         this.describe = describe;
     }
 
-    String describe;
+
     public String getName() {
         return name;
     }
@@ -32,4 +42,5 @@ public class Bean {
     public void setUrl(String url) {
         this.url = url;
     }
+
 }
